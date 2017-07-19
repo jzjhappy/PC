@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content_header %}Current Version: 1.1{% endblock %}
+
+{% block title %}Welcome to Avtech Online System{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Schedule List</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Pending Lists</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Daily To-Do</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Weekly To-Do</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Office Schedule</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Yearly Schedule</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Start One Schedule</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Start Multi-Schedule</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Alert Emergency</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Instructor Admin</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Help</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Support</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Sign Out</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<div class="row">
+  <div class="col-md-6">
+    <p>Released: 12/30/2003</p>
+    <p>Last Updated: 05/22/2017</p>
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">What's New?</h3>
+      </div>
+      <!-- /.box-header -->
+      <ul style="list-style: none;">
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Daily To-Do</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Weekly To-Do</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Office Schedule</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Instructor Schedule</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Initial One Schedule</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Alert Emergency</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - User Admin</li>
+        <li><i class="icon fa fa-check"></i> 12/30/2003: Update - Instructor Admin</li>
+        <li><i class="icon fa fa-plus"></i> 12/30/2003: Add - View User Information</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

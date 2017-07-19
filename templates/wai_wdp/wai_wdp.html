@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content_header %}WAI/WDP{% endblock %}
+
+{% block title %}WAI/WDP{% endblock %}
+
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>HOME</span></a></li>#}
+  <li><a href="/wai_wdp/search/"><i class="fa fa-link"></i> <span>Search</span></a></li>
+  <li><a href="/wai_wdp/active_contracts/"><i class="fa fa-link"></i> <span>Active Contracts</span></a></li>
+  <li><a href="/wai_wdp/contracts_history/"><i class="fa fa-link"></i> <span>Contracts History</span></a></li>
+  <li><a href="/wai_wdp/edit_cip/"><i class="fa fa-link"></i> <span>Edit CIP</span></a></li>
+  <li><a href="/wai_wdp/view_report/"><i class="fa fa-link"></i> <span>View Report</span></a></li>
+</ul>
+{% endblock %}

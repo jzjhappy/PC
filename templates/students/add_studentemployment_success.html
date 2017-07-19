@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content_header %}Successfully processed.{% endblock %}
+
+{% block title %}Hi {{first_name}} {{ last_name }}{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+  <li><i class="fa fa-link"></i> <span>Student Info</span></li>
+  <li><i class="fa fa-link"></i> <span>Student Courses</span></li>
+  <li class="active"><i class="fa fa-link"></i> <span>Student Employments</span></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<div class="jumbotron">
+	<h1>Hello, {{first_name}} {{last_name}}!</h1>
+	<p>Your student id is <strong>{{ student_id }}</strong>. Congradulations! You have completed all steps.</p>
+	<p><a class="btn btn-primary" href="/students/">Back to landing page</a><p>
+</div>
+{% endblock %}

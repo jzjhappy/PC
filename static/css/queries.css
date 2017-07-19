@@ -1,0 +1,30 @@
+/* big tablet */
+@media only screen and (max-width: 1200px) {
+
+}
+
+
+/* small tablet to big tablet */
+@media only screen and (max-width: 1023px) {
+    header {
+        height: 80px;
+    }
+    main {
+        padding-top: 80px;
+    }
+    .main-nav {
+        display: none;
+    }
+}
+
+
+/* small phone to small tablets */
+@media only screen and (max-width: 767px) {
+
+}
+
+
+/* small phones */
+@media only screen and (max-width: 480px) {
+
+}

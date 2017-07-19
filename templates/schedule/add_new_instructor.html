@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content_header %}Add New Instructor{% endblock %}
+
+{% block title %}Add New Instructor{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>HOME</span></a></li>#}
+  <li><a href="/schedule/start_one_schedule/"><i class="fa fa-link"></i> <span>Add New Schedule</span></a></li>
+{#  <li><a href="/schedule/start_multi_schedule/"><i class="fa fa-link"></i> <span>Start Multi-Schedule</span></a></li>#}
+  <li><a href="/schedule/search_schedule/"><i class="fa fa-link"></i> <span>Search Schedule</span></a></li>
+  <li><a href="/schedule/schedule_list/"><i class="fa fa-link"></i> <span>Schedule List</span></a></li>
+  <li><a href="/schedule/pending_lists/"><i class="fa fa-link"></i> <span>Pending Lists</span></a></li>
+{#  <li><a href="/schedule/daily_to_do/"><i class="fa fa-link"></i> <span>Daily To-Do</span></a></li>#}
+{#  <li><a href="/schedule/weekly_to_do/"><i class="fa fa-link"></i> <span>Weekly To-Do</span></a></li>#}
+  <li><a href="/schedule/office_schedule/"><i class="fa fa-link"></i> <span>Office Schedule</span></a></li>
+{#  <li><a href="/schedule/yearly_schedule/"><i class="fa fa-link"></i> <span>Yearly Schedule</span></a></li>#}
+{#  <li><a href="/schedule/alert_emergency/"><i class="fa fa-link"></i> <span>Alert Emergency</span></a></li>#}
+  <li><a href="/schedule/instructor_admin/"><i class="fa fa-link"></i> <span>Instructor Admin</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<style>
+    ul {
+        list-style: none;
+    }
+</style>
+<form id="instructor_form" method="post" action="/schedule/add_new_instructor/">
+    {% csrf_token %}
+    <div class="row">
+        {% for field in form %}
+            <div class="col-gl-4 col-md-4">
+                <div class="form-group">
+                    <strong>{{ field.errors }}</strong>
+                    {{ field.label_tag }}
+                    {{ field.help_text }}
+                    <br>
+                    {{ field }}
+                    <script></script>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit" name="submit">Add New Instructor</button>
+    <button type="submit" name="submit">Reset</button>
+</form>
+{% endblock %}
+
+{#{% block custom_javascript %}#}
+{#    <script>#}
+{##}
+{#        $(document).ready(function()#}
+{#            {#}
+{#                $('#id_home_phone').attr({#}
+{#                    "class" : "form-control bfh-phone",#}
+{#                    "data-format" : "+1 (ddd) ddd-dddd"#}
+{#                });#}
+{#                $('#id_work_phone').attr({#}
+{#                    "class" : "form-control bfh-phone",#}
+{#                    "data-format" : "+1 (ddd) ddd-dddd"#}
+{#                });#}
+{#                $('#id_cell_phone').attr({#}
+{#                    "class" : "form-control bfh-phone",#}
+{#                    "data-format" : "+1 (ddd) ddd-dddd"#}
+{#                });#}
+{#                $('#id_fax').attr({#}
+{#                    "class" : "form-control bfh-phone",#}
+{#                    "data-format" : "+1 (ddd) ddd-dddd"#}
+{#                });#}
+{#            }#}
+{#        );#}
+{##}
+{#    </script>#}
+{#{% endblock %}#}

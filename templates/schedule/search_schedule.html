@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load django_tables2 %}
+
+{% block content_header %}Search Schedule{% endblock %}
+
+{% block title %}Search Schedule{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>HOME</span></a></li>#}
+  <li><a href="/schedule/start_one_schedule/"><i class="fa fa-link"></i> <span>Add New Schedule</span></a></li>
+{#  <li><a href="/schedule/start_multi_schedule/"><i class="fa fa-link"></i> <span>Start Multi-Schedule</span></a></li>#}
+  <li><a href="/schedule/search_schedule/"><i class="fa fa-link"></i> <span>Search Schedule</span></a></li>
+  <li><a href="/schedule/schedule_list/"><i class="fa fa-link"></i> <span>Schedule List</span></a></li>
+  <li><a href="/schedule/pending_lists/"><i class="fa fa-link"></i> <span>Pending Lists</span></a></li>
+{#  <li><a href="/schedule/daily_to_do/"><i class="fa fa-link"></i> <span>Daily To-Do</span></a></li>#}
+{#  <li><a href="/schedule/weekly_to_do/"><i class="fa fa-link"></i> <span>Weekly To-Do</span></a></li>#}
+  <li><a href="/schedule/office_schedule/"><i class="fa fa-link"></i> <span>Office Schedule</span></a></li>
+{#  <li><a href="/schedule/yearly_schedule/"><i class="fa fa-link"></i> <span>Yearly Schedule</span></a></li>#}
+{#  <li><a href="/schedule/alert_emergency"><i class="fa fa-link"></i> <span>Alert Emergency</span></a></li>#}
+  <li><a href="/schedule/instructor_admin"><i class="fa fa-link"></i> <span>Instructor Admin</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Query Form</h3>
+    </div>
+    <div class="box-body">
+        <form id="schedule_form" method="get" action="/schedule/search_schedule/">
+            {% csrf_token %}
+            <div class="row">
+{#                {% for field in form %}#}
+{#                    <div class="col-lg-3 col-md-3">#}
+{#                        <div class="form-group">#}
+{#                            {{ field.errors }}#}
+{#                            <label for={{ field.name }}>{{ field.name }}</label>#}
+{#                            <br>#}
+{#                            {{ field }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+                <div class="col-lg-3 col-md-3">
+                    <div class="form-group">
+                        {{ form.course_name.errors }}
+                        <label for={{ form.course_name.name }}>{{ form.course_name.name }}</label>
+                        <br>
+                        {{ form.course_name }}
+                    </div>
+                </div>
+                <div id="more-fields">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="form-group">
+                            {{ form.start_date.errors }}
+                            <label for={{ form.start_date.name }}>{{ form.start_date.name }}</label>
+                            <br>
+                            {{ form.start_date }}
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="form-group">
+                            {{ form.instructor.errors }}
+                            <label for={{ form.instructor.name }}>{{ form.instructor.name }}</label>
+                            <br>
+                            {{ form.instructor }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="optional">Add More Search Options</button>
+            <br><br><button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+        </form>
+    </div>
+</div>
+
+<div class="box box-primary">
+    {% if table %}
+        {% render_table table %}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block custom_javascript %}
+    <script>
+
+        $(document).ready(function()
+            {
+                $('#id_course_name').attr('class', 'form-control');
+                $('#id_start_date').attr('class', 'form-control');
+                $('#id_instructor').attr('class', 'form-control');
+                $('#more-fields').hide();
+
+                $('#optional').click(function () {
+                    $('#more-fields').toggle();
+                    return false;
+                })
+            }
+        );
+
+    </script>
+{% endblock %}
+
+{#{% block main_content %}#}
+{#    <form method="post" action="">#}
+{#        {% csrf_token %}#}
+{#        <label for="course_name_search">Course Name:</label>#}
+{#        <input type="text" name="course_name_search" id="course_name_search">#}
+{##}
+{#        <label for="start_date_search">Start Date:</label>#}
+{#        <input type="date" name="start_date_search" id="start_date_search">#}
+{##}
+{#        <label for="instructor_search">Instructor:</label>#}
+{#        <input type="text" name="instructor_search" id="instructor_search"><br>#}
+{#        <input type="submit" name="submit">#}
+{#    </form>#}
+{#    <div id="result_panel">#}
+{#        {% if table %}#}
+{#            {% render_table table %}#}
+{#        {% else %}#}
+{#            {% if no_results %}#}
+{#                No results returned for <q>{{ no_results }}</q>#}
+{#            {% else %}#}
+{#                Please enter a search#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+{#{% endblock %}#}

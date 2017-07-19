@@ -1,0 +1,137 @@
+{#{% extends "registration_base.html" %}#}
+{#{% load i18n %}#}
+{##}
+{#{% block content %}#}
+{#	<form method="post" class="viewform" action=".">#}
+{#  	{% csrf_token %}#}
+{#  	{{ form.as_p }}#}
+{#  		<input type="submit" value="{% trans 'Log in' %}" />#}
+{#  		<input type="hidden" name="next" value="{{ next }}" />#}
+{#	</form>#}
+{#	<div class="linkdiv">#}
+{#		<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}" class="white">Reset it!</a></p>#}
+{#		<p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}" class="white">Register!</a></p>#}
+{#	</div>#}
+{#{% endblock %}#}
+
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<!-- Head -->
+<head>
+    <title>AVPASS Login & Signup</title>
+    <!-- For-Mobile-Apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Multi Login & Signup Form Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //For-Mobile-Apps -->
+
+    <!-- Style.CSS -->
+    <link rel="stylesheet" href="{% static 'css/avtechlogin.css' %}" type="text/css" media="all" />
+
+    <!-- Web-Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+    <!-- //Web-Fonts -->
+
+    <!-- Horizontal-Tabs-JavaScript -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/easyResponsiveTabs.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+            });
+        });
+    </script>
+    <!-- Horizontal-Tabs-JavaScript -->
+
+</head>
+<!-- Head -->
+<!-- Body -->
+<body>
+	<!-- Heading -->
+    <h1><img src="{% static 'img/logo.png' %}" style="width:99px;height:42px;">AVPASS</h1>
+	<!-- //Headng -->
+	<!-- Container -->
+	<div class="container">
+		<div class="tabs">
+			<div class="sap_tabs">
+				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+					<ul class="resp-tabs-list">
+						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><h2><span>LOGIN</span></h2></li>
+						<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>SIGNUP</span></li>
+						<li class="resp-tab-item" aria-controls="tab_item-3" role="tab"><span>RESET PASSWORD</span></li>
+						<div class="clear"> </div>
+					</ul>
+					<div class="resp-tabs-container">
+						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+							<!-- Form -->
+							<form action="#" method="post">
+                                {% csrf_token %}
+								<input type="text" id="id_username" name="username" placeholder="Username" required="">
+								<input type="password" id="id_password" name="password" placeholder="Password" required="">
+								<ul>
+									<li>
+										<input type="checkbox" id="brand1" value="">
+										<label for="brand1"><span></span>Remember Me</label>
+									</li>
+								</ul>
+								<input type="submit" value="LOGIN">
+							</form>
+							<!-- //Form -->
+						</div>
+						<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-2">
+							<div class="register">
+								<form action="#" method="post">
+									<input type="text" Name="First Name" placeholder="First Name" required="">
+									<input type="text" Name="Last Name" placeholder="Last Name" required="">
+									<input type="text" Name="Email" placeholder="Email" required="">
+									<input type="password" Name="Password" placeholder="Password" required="">
+									<input type="password" Name="Password" class="lessgap" placeholder="Confirm Password" required="">
+									<input type="text" Name="Phone Number" placeholder="Phone Number">
+									<div class="send-button">
+										<input type="submit" value="REGISTER">
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="tab-3 resp-tab-content" aria-labelledby="tab_item-3">
+							<div class="reset">
+								<form action="#" method="post">
+									<input type="text" Name="Email" placeholder="Email" required="">
+									<input type="password" Name="Password" placeholder="Old Password" required="">
+									<input type="password" Name="Password" placeholder="New Password" required="">
+									<input type="password" Name="Password" placeholder="Confirm New Password" required="">
+									<input type="submit" value="RESET MY PASSWORD">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //Container -->
+	<!-- Footer -->
+	<div class="footer">
+		<!-- Copyright -->
+		<div class="copyright">
+			<p> &copy;2017  AVTECH</a></p>
+		</div>
+		<!-- //Copyright -->
+	</div>
+	<!-- //Footer -->
+</body>
+<!-- //Body -->
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+{% load staticfiles %}
+
+{% block content_header %}Student Summary{% endblock %}
+
+{% block title %}Student summary{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="active"><a href="#student_info"><i class="fa"></i> <span>Student info</span></a></li>
+  <li class="active"><a href="#student_courses"><i class="fa"></i> <span>Student Courses</span></a></li>
+  <li class="active"><a href="#student_employment"><i class="fa"></i> <span>Student Employments</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<div>
+    <h3 id="student_info">Student info</h3>
+    {% for key, value in student.items %}
+        <p>{{ key }}:{{ value }}</p>
+    {% endfor %}
+
+    <h3 id="student_courses">Student Courses</h3>
+    {% for each in courses %}
+        <p>{{ each }}</p>
+    {% endfor %}
+
+    <h3 id="student_employment">Student Employment</h3>
+    {% for each in employments %}
+        <p>{{ each }}</p>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block custom_javascript %}{% endblock %}
+

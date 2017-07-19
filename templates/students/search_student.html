@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+{% load staticfiles %}
+
+{% block custom_css %}<link rel="stylesheet" type="text/css" href="{% static 'css/search_student.css' %}">{% endblock %}
+{% block content_header %}Search student{% endblock %}
+
+{% block title %}Search student{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li><a href="/students/add_student/"><i class="fa fa-link"></i> <span>Add Student</span></a></li>
+  <li><a href="/students/search_student"><i class="fa fa-link"></i> <span>Search Student</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Student Listing</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Salse Reports</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Switch Counselor</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Source Admin</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Super Tool</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Password</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Help & Settings</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Sign Out</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Query Form</h3>
+    </div>
+    <div class="box-body">
+        <form id="student_form" method="get" action="/students/search_student/">
+            {% csrf_token %}
+            <div class="row">
+                {% for field in form %}
+                    <div class="col-lg-3 col-md-3">
+                        <div class="form-group">
+                            {{ field.errors }}
+                            <label for={{ field.name }}>{{ field.name }}</label>
+                            <br>
+                            {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div id="action" class="btn-group hidden">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Action <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li id="action-edit" class="hidden"><a href="#">Edit</a></li>
+        <li id="action-view" class="hidden"><a href="#">View</a></li>
+{#        <li role="separator" class="divider"></li>#}
+        <li id="action-delete"><a href="#">Delete</a></li>
+      </ul>
+    </div>
+</div>
+
+<div class="box box-primary">
+<form>
+    {% if table %}
+        {% render_table table %}
+    {% endif %}
+</form>
+</div>
+{% endblock %}
+
+{% block custom_javascript %}
+    <script>
+        $(document).ready(function()
+            {
+                $('#id_student_id').attr('class', 'form-control');
+                $('#id_ssn').attr('class', 'form-control');
+                $('#id_first_name').attr('class', 'form-control');
+                $('#id_last_name').attr('class', 'form-control');
+                $('#id_course').attr('class', 'form-control');
+                $('#id_location').attr('class', 'form-control');
+                $('#id_date_of_birth').attr('class', 'form-control');
+                $('#id_gender').attr('class', 'form-control');
+            }
+        );
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            console.log('log');
+            function countChecked(){
+                var check_selector = $(".student_check:checked");
+                var n = check_selector.length;
+                console.log('current checked is:'+n);
+
+                if (n>=1){
+                    console.log('check');
+                    $('#action').removeClass('hidden');
+                    if (n==1){
+                        console.log('n=1');
+                        {# show actions according to single row #}
+                        $('#action-edit').removeClass('hidden');
+                        $('#action-view').removeClass('hidden');
+                        var student_id = check_selector.attr('value');
+                        console.log('current checked id is:'+student_id);
+                        var url_edit = '/students/edit/student_id='+student_id;
+                        $('#action-edit a').attr('href', url_edit);
+                        var url_view = '/students/view/student_id='+student_id;
+                        $('#action-view a').attr('href', url_view);
+                    }
+                    else {
+                        console.log('n>1');
+                        $('#action-edit').addClass('hidden');
+                        $('#action-view').addClass('hidden');
+                    }
+                }
+                else{
+                    $('#action').addClass('hidden');
+                }
+            }
+
+            $("input[type=checkbox]").on("click", countChecked);
+        });
+
+    </script>
+{% endblock %}

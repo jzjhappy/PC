@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content_header %}Billing{% endblock %}
+
+{% block title %}Billing{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active">#}
+{#      <a href="#">#}
+{#        <i class="fa fa-link"></i>#}
+{#        <span>HOME</span>#}
+{#      </a>#}
+{#  </li>#}
+  <li><a href="/billing/pay_tuition/"><i class="fa fa-link"></i> <span>Billing</span></a></li>
+  <li><a href="/billing/payment_notice/"><i class="fa fa-link"></i> <span>WAI/WDP</span></a></li>
+  <li><a href="/billing/sales_log/"><i class="fa fa-link"></i> <span>Timesheet</span></a></li>
+</ul>
+{% endblock %}

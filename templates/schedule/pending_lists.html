@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content_header %}Pending Lists{% endblock %}
+
+{% block title %}Pending Lists{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>HOME</span></a></li>#}
+  <li><a href="/schedule/start_one_schedule/"><i class="fa fa-link"></i> <span>Add New Schedule</span></a></li>
+{#  <li><a href="/schedule/start_multi_schedule/"><i class="fa fa-link"></i> <span>Start Multi-Schedule</span></a></li>#}
+  <li><a href="/schedule/search_schedule/"><i class="fa fa-link"></i> <span>Search Schedule</span></a></li>
+  <li><a href="/schedule/schedule_list/"><i class="fa fa-link"></i> <span>Schedule List</span></a></li>
+  <li><a href="/schedule/pending_lists/"><i class="fa fa-link"></i> <span>Pending Lists</span></a></li>
+{#  <li><a href="/schedule/daily_to_do/"><i class="fa fa-link"></i> <span>Daily To-Do</span></a></li>#}
+{#  <li><a href="/schedule/weekly_to_do/"><i class="fa fa-link"></i> <span>Weekly To-Do</span></a></li>#}
+  <li><a href="/schedule/office_schedule/"><i class="fa fa-link"></i> <span>Office Schedule</span></a></li>
+{#  <li><a href="/schedule/yearly_schedule/"><i class="fa fa-link"></i> <span>Yearly Schedule</span></a></li>#}
+{#  <li><a href="/schedule/alert_emergency/"><i class="fa fa-link"></i> <span>Alert Emergency</span></a></li>#}
+  <li><a href="/schedule/instructor_admin/"><i class="fa fa-link"></i> <span>Instructor Admin</span></a></li>
+</ul>
+{% endblock %}

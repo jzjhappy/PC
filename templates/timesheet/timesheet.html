@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content_header %}TimeSheet{% endblock %}
+
+{% block title %}TimeSheet{% endblock %}
+
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>HOME</span></a></li>#}
+  <li><a href="/timesheet/attendance/"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
+  <li><a href="/timesheet/grading/"><i class="fa fa-link"></i> <span>Grading</span></a></li>
+  <li><a href="/timesheet/advisory/"><i class="fa fa-link"></i> <span>Advisory</span></a></li>
+  <li><a href="/timesheet/certificate/"><i class="fa fa-link"></i> <span>Certificate</span></a></li>
+  <li><a href="/timesheet/search/"><i class="fa fa-link"></i> <span>Search</span></a></li>
+  <li><a href="/timesheet/students_info/"><i class="fa fa-link"></i> <span>Students Info.</span></a></li>
+  <li><a href="/timesheet/sum_report/"><i class="fa fa-link"></i> <span>Sum. Report</span></a></li>
+</ul>
+{% endblock %}

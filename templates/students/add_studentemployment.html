@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load countries %}
+
+{% block content_header %}Welcome Back!{% endblock %}
+
+{% block title %}Add Student's Employment{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+  <li><a href="#"><i class="fa fa-link"></i> <span>Student Info</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Student Courses</span></a></li>
+  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Student Employments</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<h2>Add employment history</h2>
+<br>
+<div>
+	<form id="student_form" method="post" action="/students/id={{student_id}}/add_studentemployment/">
+		{% csrf_token %}
+		<div class="row">
+			{% for field in form %}
+			<div class="col-gl-4 col-md-4">
+				{% if field.type == 'checkbox' %}<!-- field.type is not accessible. Need fix. -->
+				<div class="checkbox">
+					<strong>{{ field.errors }}</strong>
+			        {{ field.label_tag }}
+			        {{ field.help_text }}
+			        <br>
+			        {{ field }}
+			        <script></script>
+		        </div>
+		        {% else %}
+	        	<div class="form-group">
+					<strong>{{ field.errors }}</strong>
+			        {{ field.label_tag }}
+			        {{ field.help_text }}
+			        <br>
+			        {{ field }}
+			        <script></script>
+		        </div>
+		        {% endif %}
+	        </div>
+			{% endfor %}
+		</div>
+		
+
+		<!-- {% for hidden in form.hidden_fields %}
+			{{ hidden }}
+		{% endfor %}
+		{% for field in form.visible_fields %}
+			{{ field.errors }}
+			{{ field.help_text }}
+			{{ field }}
+			<br>
+		{% endfor %} -->
+		<button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Create an employment history</button>
+	</form>
+</div>
+{% endblock %}

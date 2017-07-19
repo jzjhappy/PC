@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+
+{% block content_header %}First 5 students{% endblock %}
+
+{% block title %}Student{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#">#}
+{#      <i class="fa fa-link"></i>#}
+{#      <span>HOME</span></a>#}
+{#  </li>#}
+  <li><a href="/students/add_student/"><i class="fa fa-link"></i> <span>Add Student</span></a></li>
+  <li><a href="/students/search_student"><i class="fa fa-link"></i> <span>Search Student</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Student Listing</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Salse Reports</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Switch Counselor</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Source Admin</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Super Tool</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Password</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Help & Settings</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Sign Out</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<div class="box box-default">
+<form>
+    {% if table %}
+        {% render_table table %}
+    {% endif %}
+</form>
+</div>
+
+{% endblock %}

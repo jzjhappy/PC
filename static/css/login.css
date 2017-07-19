@@ -1,0 +1,32 @@
+.loginview {
+	border-radius: 15px;
+	background-color:#3c8dbc;
+	padding: 20px;
+}
+
+html, body, .container-table {
+    height: 100%;
+}
+
+.container-table {
+    display: table;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+a.white:link {color: white;}
+a.white:active {color: white;}
+a.white:visited {color: white}
+a.white:hover {color: white}
+
+form {
+	margin: 10px;
+}
+
+.linkdiv {
+  	color: black;
+	padding: 40px;	
+}

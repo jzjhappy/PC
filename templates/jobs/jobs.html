@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content_header %}Jobs{% endblock %}
+
+{% block title %}Jobs{% endblock %}
+
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+{#  <li class="active"><a href="#"><i class="fa fa-link"></i> <span>HOME</span></a></li>#}
+  <li><a href="/jobs/student_resume/"><i class="fa fa-link"></i> <span>Student Resume</span></a></li>
+  <li><a href="/jobs/skills_list/"><i class="fa fa-link"></i> <span>Skills List</span></a></li>
+  <li><a href="/jobs/clients/"><i class="fa fa-link"></i> <span>Clients</span></a></li>
+  <li><a href="/jobs/positions/"><i class="fa fa-link"></i> <span>Positions</span></a></li>
+  <li><a href="/jobs/group_email/"><i class="fa fa-link"></i> <span>Group Email</span></a></li>
+</ul>
+{% endblock %}

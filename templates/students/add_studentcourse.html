@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load countries %}
+
+{% block content_header %}Welcome Back!{% endblock %}
+
+{% block title %}Add courses{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li class="header">MENU</li>
+  <!-- Optionally, you can add icons to the links -->
+  <li><a href="#"><i class="fa fa-link"></i> <span>Student Info</span></a></li>
+  <li  class="active><i class="fa fa-link"></i> <span>Student Courses</span></li>
+  <li"><a href="#"><i class="fa fa-link"></i> <span>Student Employments</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<h2>Add course</h2>
+<br>
+<div>
+	<form id="student_form" method="post" action="/students/id={{student_id}}/add_studentcourse/">
+		{% csrf_token %}
+		<div class="row">
+		{% for field in form %}
+			<div class="col-gl-12 col-md-12"><!-- field.type is not accessible. Need fix. -->
+				<strong>{{ field.errors }}</strong>
+				{{ field.label_tag }}
+				{{ field.help_text }}
+				<br>
+				{% for each in field %}
+				<div class="col-gl-3 col-md-3">
+					{{each}}
+				</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+		</div>
+		{{form.database.option}}
+		
+
+		<!-- {% for hidden in form.hidden_fields %}
+			{{ hidden }}
+		{% endfor %}
+		{% for field in form.visible_fields %}
+			{{ field.errors }}
+			{{ field.help_text }}
+			{{ field }}
+			<br>
+		{% endfor %} -->
+		<button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Submit your course</button>
+	</form>
+</div>
+{% endblock %}

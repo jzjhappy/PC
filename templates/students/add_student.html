@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load countries %}
+
+{% block content_header %}Welcome Back!{% endblock %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block sidebar %}
+<ul class="sidebar-menu">
+  <li><a href="/students/add_student/"><i class="fa fa-link"></i> <span>Add Student</span></a></li>
+  <li><a href="/students/search_student"><i class="fa fa-link"></i> <span>Search Student</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Student Listing</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Salse Reports</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Switch Counselor</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Source Admin</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Super Tool</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Password</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Help & Settings</span></a></li>
+  <li><a href="#"><i class="fa fa-link"></i> <span>Sign Out</span></a></li>
+</ul>
+{% endblock %}
+
+{% block main_content %}
+<h2>Add a student</h2>
+<br>
+<div>
+	<form id="student_form" method="post" action="/students/add_student/">
+		{% csrf_token %}
+		<div class="row">
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form %}
+                <div class="col-gl-4 col-md-4">
+                    <div class="form-group">
+                        <strong>{{ field.errors }}</strong>
+                        {{ field.label_tag }}
+                        {{ field.help_text }}
+                        <br>
+                        {{ field }}
+                    </div>
+                </div>
+			{% endfor %}
+        </div>
+		<button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Create a student</button>
+	</form>
+</div>
+{% endblock %}
